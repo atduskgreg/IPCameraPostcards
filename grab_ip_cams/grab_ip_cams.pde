@@ -40,8 +40,8 @@ String getNextCamURL(){
   }
   String result = camURLs[currentURLNum];
   thisCamCaptured = false;
-    cam = new IPCapture(this, result, "", "");
-      cam.start();
+  currentCamURL = result;
+   
   println("next URL: " + result);
   currentURLNum++;
   return result;
@@ -50,12 +50,14 @@ String getNextCamURL(){
 void draw() {
   if (cam.isAvailable()) {
     println("reading cam...");
+    println("cam captured: " + thisCamCaptured);
     cam.read();
     image(cam,0,0);
     if(!thisCamCaptured){
       saveCam();
-      getNextCamURL();
       thisCamCaptured = true;
+       cam = new IPCapture(this, getNextCamURL(), "", "");
+      cam.start();
     }
   }
 }
@@ -64,7 +66,11 @@ void saveCam(){
   println("saving...");
   PImage output = createImage(cam.width, cam.height, RGB);
   output.copy(cam, 0, 0, cam.width, cam.height, 0, 0, cam.width, cam.height);
-  output.save(dataPath("cams/" + currentCategoryName + "-" + (currentURLNum-1) + ".png"));
+  
+  
+  
+  String encodedURL = java.net.URLEncoder.encode(currentCamURL, "ISO-8859-1");
+  output.save(dataPath("cams/" + encodedURL + ".png"));
 
 }
 
