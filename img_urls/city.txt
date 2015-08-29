@@ -1,0 +1,6 @@
+http://68.181.172.237:80/SnapshotJPEG?Resolution=640x480&Quality=Clarity
+http://81.8.160.235:80/mjpg/video.mjpg
+http://173.198.63.229:80/oneshotimage1
+http://96.89.4.233:80/oneshotimage1
+http://141.211.175.226:80/mjpg/video.mjpg
+http://184.178.184.228:8090/oneshotimage1

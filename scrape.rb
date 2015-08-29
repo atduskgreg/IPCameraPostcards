@@ -20,9 +20,13 @@ categories.each do |cat|
     stream_links = cam_doc.css("a").select{|l| l.attributes["rel"] && l.attributes["rel"].value == "nofollow"}
     if stream_links.length > 0
       cam_url = stream_links[0].attributes["href"].value
-      puts cam_url
-      File.open("cam_urls/#{cat.downcase}.txt", "a"){|f| f << cam_url + "\n"}
+      img_url = stream_links[0].children.select{|n| n.name == "img"}[0].attributes["src"].value
+
+      # puts cam_url
+      File.open("img_urls/#{cat.downcase}.txt", "a"){|f| f << img_url + "\n"}
     end
+
+    # `cd grabs; wget #{img_url}`
   end
 end
 

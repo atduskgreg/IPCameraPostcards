@@ -1,0 +1,5 @@
+http://76.101.59.230:1024/img/video.mjpeg
+http://70.88.60.222:8001/mjpg/video.mjpg
+http://77.211.19.217:81/mjpg/video.mjpg
+http://122.249.164.213:80/mjpg/video.mjpg
+http://23.25.165.213:8080/oneshotimage1
